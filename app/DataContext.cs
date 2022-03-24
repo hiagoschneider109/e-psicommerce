@@ -8,4 +8,6 @@ public class DataContext : DbContext
     public DbSet<ListType> ListTypes { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<User> Users { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlite($"Data Source={"./app.db"}");
 }
