@@ -65,7 +65,7 @@ const NavMenu = () => {
                     <MenuItem>SIGN IN</MenuItem>
                     <MenuItem>
                         <Badge>
-                            <ShoppingCartOutlinedIcon color="action"/>
+                            <ShoppingCartOutlinedIcon color="action" />
                         </Badge>
                     </MenuItem>
                 </Right>
