@@ -1,49 +1,77 @@
-import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import styled from "styled-components";
+import {Search} from "@mui/icons-material";
+import Badge from '@mui/material/Badge';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
-export class NavMenu extends Component {
-  static displayName = NavMenu.name;
+const Container = styled.div`
+    height: 60px;
+`;
+const Wrapper = styled.div`
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+const Left = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+`;
+const SearchContainer = styled.div`
+    border: 0.5px solid lightgray;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    padding: 5px;
+`;
+const Input = styled.input`
+    border: none;
+`;
 
-  constructor (props) {
-    super(props);
+const Center = styled.div`
+    flex: 1;
+    text-align: center;
+`;
+const Logo = styled.h1`
+    font-weight: bold;
+`;
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
-    };
-  }
+const Right = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`;
+const MenuItem = styled.div`
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 25px;
+`;
 
-  toggleNavbar () {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
+const NavMenu = () => {
 
-  render () {
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-          <Container>
-            <NavbarBrand tag={Link} to="/">app</NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ul className="navbar-nav flex-grow">
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-                </NavItem>
-              </ul>
-            </Collapse>
-          </Container>
-        </Navbar>
-      </header>
-    );
-  }
+        <Container>
+            <Wrapper>
+                <Left>
+                    <SearchContainer>
+                        <Input placeholder="Search"/>
+                        <Search />
+                    </SearchContainer>
+                </Left>
+                <Center><Logo>THEPROJECT.</Logo></Center>
+                <Right>
+                    <MenuItem>REGISTER</MenuItem>
+                    <MenuItem>SIGN IN</MenuItem>
+                    <MenuItem>
+                        <Badge>
+                            <ShoppingCartOutlinedIcon color="action"/>
+                        </Badge>
+                    </MenuItem>
+                </Right>
+            </Wrapper>
+        </Container>
+    )
 }
+
+export default NavMenu
