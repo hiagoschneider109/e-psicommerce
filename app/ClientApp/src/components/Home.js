@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import Products from './Products';
+import Slider from './Slider'
 const Container = styled.div`
-
+  
 `;
 export class Home extends Component {
   static displayName = Home.name;
@@ -10,7 +11,8 @@ export class Home extends Component {
   render () {
     return (
       <Container>
-        <h1>Salut!!!</h1>
+        <Slider/>
+        <Products />
       </Container>
     );
   }
